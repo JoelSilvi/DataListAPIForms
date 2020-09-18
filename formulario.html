@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{
+        text-align: center;
+        background-color: #f96;
+        width: 25%;
+        margin: auto;
+        border: 2px #f30 dashed;
+    }
+    td{
+        padding: 15px;
+    }
+
+</style>
+<script>
+    function comenzar(){
+
+        var Nombre=document.getElementById("Nombre");
+
+        var Apellido=document.getElementById("Apellido");
+
+        Nombre.addEventListener("input",validar,false);
+
+        Apellido.addEventListener("input",validar,false);
+
+        validar();
+
+    }
+
+    function validar(){
+
+        if(Nombre.value=="" && Apellido.value==""){
+            Nombre.setCustomValidity("Introduce Nombre o Apellido");
+
+            Nombre.style.background="#ffdddd";
+            Apellido.style.background="#ffdddd";
+        }else{
+
+            Nombre.setCustomValidity("");
+            Nombre.style.background="#ffffff";
+            Apellido.style.background="#ffffff";
+        }
+
+    }
+
+    window.addEventListener("load",comenzar,false);
+
+
+</script>
+<body>
+    <section>
+        <form name="Registro" method="GET" autocomplete="off">
+            <table><tr><td>
+                    Nombre:</td><td><input type="text" name="Nombre" id="Nombre"></td></tr>
+                <tr><td>
+                    Apellido:</td><td><input type="text" name="Apellido" id="Apellido"></td></tr>
+                <tr><td>
+                    Edad:</td><td><input type="number" name="Edad" id="Edad" min="1" max="100"></td></tr>
+                <tr><td>
+                    <input type="submit" name="Enviar" value="Registrar"></td></tr>
+            </table>
+
+            <!-- <datalist id="informacion">
+                <option value="915212346" label="   Telefono 1"></option>
+                <option value="915262646" label="   Telefono 2"></option>
+                <option value="915282386" label="   Telefono 3"></option>
+            </datalist> -->
+            <!-- Telefono:&nbsp;<input type="tel" name="Telefono" id="Telefono" list="informacion"> -->
+
+        </form>
+    </section>
+    
+</body>
+</html>
