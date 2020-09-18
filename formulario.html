@@ -47,16 +47,24 @@
 
     function enviar(){
 
+        var cuadro_usuario=document.getElementById("usuario");
+
         var correcto=document.datos_usuario.checkValidity();
 
         if(correcto==true){
+
             document.datos_usuario.submit();
+
+        }else if(cuadro_usuario.validity.valueMissing==true || cuadro_usuario.validity.patternMismatch==true){
+
+            alert("Usuario no puede estar vacío y recuerda que debe tener 3 letras");
+
         }
 
     }
 
     function validar_tiempo_real(e){
-
+        
         var elemento=e.target;
 
         if(elemento.validity.valid==true){
@@ -64,7 +72,7 @@
             elemento.style.background="#ffffff";
 
         }else{
-            
+
             elemento.style.background="#ffdddd";
         }
 
@@ -78,7 +86,7 @@
     <section>
         <form name="datos_usuario" method="GET">
             <table><tr><td>
-                    Usuario:</td><td><input pattern="[A-Za-z]{3}" name="Usuario" maxlength="10" required></td></tr>
+                    Usuario:</td><td><input pattern="[A-Za-z]{3}" id="usuario" maxlength="10" required></td></tr>
                 <tr><td>
                     Email:</td><td><input type="email" name="miemail" id="miemail" required></td></tr>
                 <tr><td>
